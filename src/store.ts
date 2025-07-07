@@ -7,14 +7,18 @@ import {
 import {MapIcon} from 'lucide-react';
 import {z} from 'zod';
 import {MainView} from './components/MainView';
+import {
+  createDefaultSqlEditorConfig,
+  createSqlEditorSlice,
+  SqlEditorSliceConfig,
+  SqlEditorSliceState,
+} from '@sqlrooms/sql-editor';
 import Random from './components/Random';
 
 /**
  * Room config schema is the part of the app state meant for saving.
  */
-export const RoomConfig = BaseRoomConfig.extend({
-  // Add your room config here
-});
+export const RoomConfig = BaseRoomConfig.merge(SqlEditorSliceConfig)
 export type RoomConfig = z.infer<typeof RoomConfig>;
 
 /**
@@ -22,7 +26,7 @@ export type RoomConfig = z.infer<typeof RoomConfig>;
  */
 export type RoomState = RoomShellSliceState<RoomConfig> & {
   // Add your app state here
-};
+} & SqlEditorSliceState;
 
 /**
  * Create the room store. You can combine your custom state and logic
@@ -35,11 +39,27 @@ export const {roomStore, useRoomStore} = createRoomStore<RoomConfig, RoomState>(
         title: 'Minimal SQLRooms App',
         dataSources: [
           {
-            tableName: 'earthquakes',
+            tableName: 'covid_2020',
             type: 'url',
-            url: 'https://raw.githubusercontent.com/keplergl/kepler.gl-data/refs/heads/master/earthquakes/data.csv',
+            url: '../data/covid_2020.csv',
+          },
+          {
+            tableName: 'covid_2021',
+            type: 'url',
+            url: '../data/covid_2021.csv',
+          },
+          {
+            tableName: 'covid_2022',
+            type: 'url',
+            url: '../data/covid_2022.csv',
+          },
+          {
+            tableName: 'covid_2023',
+            type: 'url',
+            url: '../data/covid_2023.csv',
           },
         ],
+        ...createDefaultSqlEditorConfig(),
       },
       room: {
         panels: {
@@ -53,5 +73,6 @@ export const {roomStore, useRoomStore} = createRoomStore<RoomConfig, RoomState>(
         },
       },
     })(set, get, store),
+    ...createSqlEditorSlice()(set, get, store),
   }),
 );

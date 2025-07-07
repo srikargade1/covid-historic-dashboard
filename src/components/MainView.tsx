@@ -2,6 +2,7 @@ import { SpinnerPane } from '@sqlrooms/ui';
 import { useMemo, useState, useEffect } from 'react';
 import { StateFeature } from './MapView';
 import MapView from './MapView';
+import CovidCharts from './CovidCharts';
 
 // Define the structure of your JSON file
 interface StateFeatureCollection {
@@ -78,36 +79,8 @@ export const MainView: React.FC = () => {
       </div>
 
       {/* Right half - Additional content */}
-      <div className="w-1/2 h-full bg-gray-100 p-4">
-        <div className="h-full flex flex-col">
-          <h2 className="text-xl font-bold mb-4">State Information</h2>
-          
-          {/* State count */}
-          {stateFeatures && (
-            <div className="mb-4">
-              <p className="text-sm text-gray-600">
-                Total States: {stateFeatures.length}
-              </p>
-            </div>
-          )}
-
-          {/* State list */}
-          <div className="flex-1 overflow-y-auto">
-            {stateFeatures?.map((state, index) => (
-              <div 
-                key={index} 
-                className="mb-2 p-2 bg-white rounded shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="font-medium">{state.properties.name}</div>
-                {state.properties.abbrev && (
-                  <div className="text-sm text-gray-500">
-                    {state.properties.abbrev}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="w-1/2 h-full bg-white p-6 overflow-y-auto">
+          <CovidCharts /> 
       </div>
     </div>
   );

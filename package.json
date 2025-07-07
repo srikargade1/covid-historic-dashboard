@@ -13,6 +13,7 @@
     "@deck.gl/mapbox": "^9.1.12",
     "@sqlrooms/discuss": "0.20.0",
     "@sqlrooms/duckdb": "0.20.0",
+    "@sqlrooms/recharts": "^0.21.0",
     "@sqlrooms/room-config": "0.20.0",
     "@sqlrooms/room-shell": "0.20.0",
     "@sqlrooms/sql-editor": "0.20.0",
