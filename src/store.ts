@@ -13,7 +13,7 @@ import {
   SqlEditorSliceConfig,
   SqlEditorSliceState,
 } from '@sqlrooms/sql-editor';
-import Random from './components/Random';
+
 
 /**
  * Room config schema is the part of the app state meant for saving.
