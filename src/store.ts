@@ -58,6 +58,11 @@ export const {roomStore, useRoomStore} = createRoomStore<RoomConfig, RoomState>(
             type: 'url',
             url: '../data/covid_2023.csv',
           },
+          {
+            tableName: 'covid_totals',
+            type: 'url',
+            url: '../data/covid_totals.csv',
+          }
         ],
         ...createDefaultSqlEditorConfig(),
       },
