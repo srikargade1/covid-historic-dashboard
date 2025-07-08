@@ -3,6 +3,7 @@ import type {Config} from 'tailwindcss';
 
 const config = {
   presets: [sqlroomsTailwindPreset()],
+  darkMode: 'class',
   content: [
     'src/**/*.{ts,tsx}',
     './node_modules/@sqlrooms/*/dist/**/*.js',

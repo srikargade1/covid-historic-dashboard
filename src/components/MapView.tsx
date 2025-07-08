@@ -57,7 +57,6 @@ export default function MapView({
   stateFeatures,
   onStateClick,
   fillColor = [0, 150, 255, 180],
-  hoveredFillColor = [255, 100, 100, 220],
   pointRadius = 8,
 }: MapViewProps) {
   const [hovered, setHovered] = useState<HoverInfo | null>(null);
@@ -159,21 +158,15 @@ export default function MapView({
             style={{ zIndex: 1000 }}
           >
             <div 
-              className="bg-white text-black rounded-lg shadow-2xl border border-gray-200 min-w-0 overflow-hidden"
-              style={{ 
-                padding: '12px 16px',
-                minWidth: '200px',
-                maxWidth: '280px',
-                zIndex: 1001,
-                position: 'relative'
-              }}
+              className="bg-white text-black dark:bg-gray-800 dark:text-white rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 min-w-0 overflow-hidden p-3"
+              style={{ minWidth: '200px', maxWidth: '280px', position: 'relative' }}
             >
               {/* Header */}
-              <div className="border-b border-gray-100 pb-2 mb-3">
-                <div className="font-semibold text-gray-900 text-base leading-tight">
+              <div className="border-b border-gray-100 dark:border-gray-700 pb-2 mb-3">
+                <div className="font-semibold text-base leading-tight text-gray-900 dark:text-white">
                   {hovered.name}
                 </div>
-                <div className="text-xs text-gray-500 mt-1">
+                <div className="text-xs text-gray-500 dark:text-gray-300 mt-1">
                   {hoveredCovidData?.abbrev || hovered.abbrev}
                 </div>
               </div>
@@ -181,28 +174,30 @@ export default function MapView({
               {/* Stats */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Total Cases</span>
-                  <span className="text-sm font-semibold text-blue-600 tabular-nums">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Total Cases</span>
+                  <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 tabular-nums">
                     {formatNumber(hoveredCovidData?.totalCases)}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Total Deaths</span>
-                  <span className="text-sm font-semibold text-red-600 tabular-nums">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">Total Deaths</span>
+                  <span className="text-sm font-semibold text-red-600 dark:text-red-400 tabular-nums">
                     {formatNumber(hoveredCovidData?.totalDeaths)}
                   </span>
                 </div>
               </div>
 
               {/* Tooltip arrow */}
-              <div 
-                className="absolute left-1/2 transform -translate-x-1/2 w-0 h-0"
+              <div
+                className="
+                  absolute left-1/2 transform -translate-x-1/2 w-0 h-0 
+                  border-l-[6px] border-r-[6px] border-t-[6px]
+                  border-l-transparent border-r-transparent 
+                  border-t-white dark:border-t-gray-800
+                "
                 style={{
                   bottom: '-6px',
-                  borderLeft: '6px solid transparent',
-                  borderRight: '6px solid transparent',
-                  borderTop: '6px solid white',
                   filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
                 }}
               />

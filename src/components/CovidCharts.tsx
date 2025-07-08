@@ -130,7 +130,7 @@ export default function CovidCharts() {
   );
 
   return (
-    <div className="w-full h-full p-6 space-y-10 overflow-y-auto bg-white dark:bg-gray-900 text-black dark:text-white border-none">
+    <div className="w-full h-full p-6 space-y-10 overflow-y-auto scrollbar-thin scrollbar-thumb-[hsl(var(--border))] scrollbar-track-transparent bg-[hsl(var(--background))] text-[hsl(var(--foreground))] border-none">
       <section>
         <h2 className="text-2xl font-bold mb-2">Remembering the Impact of COVID-19 (2020–2023)</h2>
         <p className="text-sm text-gray-700 dark:text-gray-300">

@@ -41,27 +41,27 @@ export const {roomStore, useRoomStore} = createRoomStore<RoomConfig, RoomState>(
           {
             tableName: 'covid_2020',
             type: 'url',
-            url: '../data/covid_2020.csv',
+            url: '/covid_2020.csv',
           },
           {
             tableName: 'covid_2021',
             type: 'url',
-            url: '../data/covid_2021.csv',
+            url: '/covid_2021.csv',
           },
           {
             tableName: 'covid_2022',
             type: 'url',
-            url: '../data/covid_2022.csv',
+            url: '/covid_2022.csv',
           },
           {
             tableName: 'covid_2023',
             type: 'url',
-            url: '../data/covid_2023.csv',
+            url: '/covid_2023.csv',
           },
           {
             tableName: 'covid_totals',
             type: 'url',
-            url: '../data/covid_totals.csv',
+            url: '/covid_totals.csv',
           }
         ],
         ...createDefaultSqlEditorConfig(),

@@ -79,7 +79,7 @@ export const MainView: React.FC = () => {
       </div>
 
       {/* Right half - Additional content */}
-      <div className="w-1/2 h-full bg-white p-6 overflow-y-auto">
+      <div className="w-1/2 h-full bg-[hsl(var(--background))] text-[hsl(var(--foreground))] p-6 overflow-y-auto custom-scrollbar">
           <CovidCharts /> 
       </div>
     </div>
